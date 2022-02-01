@@ -50,7 +50,7 @@ dependencies {
     implementation "org.grails.plugins:events"
     implementation "org.grails.plugins:grails-melody-plugin:1.80.0"
     implementation "org.grails.plugins:gsp"
-    implementation 'org.grails.plugins:spring-security-core:5.0.0-SNAPSHOT'
+    implementation 'org.grails.plugins:spring-security-core:5.0.0-RC1'
     profile "org.grails.profiles:web"
     runtimeOnly "org.glassfish.web:el-impl:2.2.1-b05"
     runtimeOnly "com.h2database:h2"
