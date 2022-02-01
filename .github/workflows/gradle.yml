@@ -1,0 +1,30 @@
+name: Java CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: ['11']
+    env:
+      WORKSPACE: ${{ github.workspace }}
+      GRADLE_OPTS: -Xmx1500m -Dfile.encoding=UTF-8
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: ${{ matrix.java }}
+      - name: Run Build
+        if: github.event_name == 'push'
+        id: build
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: assemble
